@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run build:ts && npm run build:ts:es",
+    "build:ts": "tsc -b packages/js packages/react",
+    "build:ts:es": "tsc -b packages/js/tsconfig.es.json packages/react/tsconfig.es.json",
+    "clean:generated": "find ./packages -name \"*.d.ts\" -type f -delete && find ./packages -name \"*.tsbuildinfo\" -type f -delete",
+    "start": "npm run build:ts -- --watch & npm run build:ts:es -- --watch",
+    "lint": "eslint .",
+    "test": "jest",
+    "prettier": "prettier --write ./packages/**/**/*.{ts,tsx}",
+    "prepublishOnly": "npm run build",
+    "postinstall": "lerna link",
+    "publish:canary": "lerna publish --canary",
+    "publish:stable": "lerna publish"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@testing-library/react": "^13.2.0",
+    "@types/jest": "^27.0.1",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.0.6",
+    "jest-cli": "^28.0.3",
+    "lerna": "^4.0.0",
+    "prettier": "^2.3.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-test-renderer": "^18.1.0",
+    "ts-jest": "^27.0.4",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "engines": {
+    "node": "^16"
+  }
+}

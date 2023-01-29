@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "noLib": false,
+    "module": "commonjs",
+    "jsx": "react",
+    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "@m4tt72/*": ["packages/*/src"]
+    },
+    "composite": true,
+    "sourceMap": true,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true
+  },
+  "references": [
+    { "path": "packages/js" },
+    { "path": "packages/react" }
+  ]
+}
